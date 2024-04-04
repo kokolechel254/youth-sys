@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block page_title %} {{page_title}} {% endblock page_title %}
+
+
+
+{% load i18n %}
+
+
+{% block content %}
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+{% include "snippets/form.html" with value="Login" %}
+
+
+<p> {% translate 'Forgot Password?' %} <a href="{% url 'password_reset' %}"> {% translate 'Reset Password' %} </a></p>
+<p> {% translate 'No Account?' %} <a href="{% url 'accounts-create' %}"> {% translate 'SignUp' %} </a></p>
+
+
+{% endblock content %}

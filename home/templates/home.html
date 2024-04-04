@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n static %}
+
+
+
+{% block content %}
+
+{% comment %} {% include 'navbar.html' %} {% endcomment %}
+<button type="button"> Apply Loan </button>
+or
+<button type="button">
+    <a href="{% url 'accounts-create' %}">
+        {% translate 'Register' %}
+    </a>
+</button>
+
+
+               
+
+{% endblock content %}

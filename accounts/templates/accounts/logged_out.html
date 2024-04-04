@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block page_title %} {{page_title}} {% endblock page_title %}
+
+
+
+{% load i18n %}
+
+{% comment %} breadcrumbs {% endcomment %}
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">{% include "layouts/links/home.html" %}</li>
+    <li class="breadcrumb-item active" aria-current="page"> {% translate 'Logged Out' %} </li>
+{% endblock breadcrumbs %}
+
+{% block content %}
+{% url 'login' as login %}
+
+<p>{% translate "Thanks for spending some quality time with the web site today." %}</p>
+<p><a href="{{ login }}">{% translate 'Log in again' %}</a></p>
+{% endblock content %}

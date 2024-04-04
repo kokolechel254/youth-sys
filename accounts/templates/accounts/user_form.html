@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block page_title %} {{page_title}} {% endblock page_title %}
+
+
+
+{% load i18n %}
+
+{% comment %} breadcrumbs {% endcomment %}
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">{% include "layouts/links/home.html" %}</li>
+    <li class="breadcrumb-item active" aria-current="page"> {% translate 'Create Account' %} </li>
+{% endblock breadcrumbs %}
+
+{% block content %}
+
+{% include "snippets/form.html" with value="Create" %}
+
+{# Assumes you set up the password_reset view in your URLconf #}
+<p> {% translate 'Already Have Account?' %} <a href="{% url 'login' %}"> {% translate 'Login Here' %} </a></p>
+
+{% endblock content %}
